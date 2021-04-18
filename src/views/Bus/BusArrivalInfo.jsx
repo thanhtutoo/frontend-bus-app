@@ -22,17 +22,11 @@ class BusArrivalInfo extends Component {
     };
   }
   componentDidMount() {
-    console.log("this.state.bus_stop_id");
-    console.log(this.state.bus_stop_id);
+  
     ApiUtil.call("bus-stops/" + this.state.bus_stop_id).then((result) => {
-      console.log("result.data.data");
-      console.log(result.data.data);
-      // if(result.data.length >0){
+     
       let data_info = result.data.data.results;
       data_info.forEach((element, index) => {
-        // let km = element.substring(0,3);
-        // console.log(element)
-        // let current_time = Math.round(new Date().getTime()/1000);
         let arrival_timing = moment
           .unix(element.arrival_timing)
           .format("h:mm:ss");
@@ -47,7 +41,6 @@ class BusArrivalInfo extends Component {
         data: data_info,
         bus_stop_name: data_info.length > 0 ? data_info[0].bus_stop.bus_stop_name: ""
       });
-      // }
     });
   }
   handleFormError() {

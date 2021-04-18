@@ -33,8 +33,6 @@ class Profile extends Component {
           let data_info = result.data.data.results;
       
           data_info.forEach((element, index) => {
-            // let km = element.substring(0,3);
-            // console.log(element)
             data_info[index]["km"] = element.distance.toFixed(2);
           });
           this.setState({
@@ -46,11 +44,7 @@ class Profile extends Component {
         }
       })
       .catch((error) => {
-        console.log("error +");
         console.log(error);
-        this.props.history.push(
-          "/sign-in"
-        );
       });
   }
 
@@ -83,8 +77,6 @@ class Profile extends Component {
                         title={
                           <Link
                             onClick={() => {
-                              // this.props.history.push('/bus-arrival-info', {prop1: "someData"});
-                              // this.props.history.push("/bus-arrival-info", { state: 'sample data'});
                               this.props.history.push(
                                 "/bus-arrival-info/" + item.bus_stop_id
                               );
