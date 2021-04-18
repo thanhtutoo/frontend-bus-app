@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Baskervville';
+    src: url('../../fonts/Baskervville/Baskervville-Italic.eot');
+    src: url('../../fonts/Baskervville/Baskervville-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/Baskervville/Baskervville-Italic.woff2') format('woff2'),
+    url('../../fonts/Baskervville/Baskervville-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Baskervville';
+    src: url('../../fonts/Baskervville/Baskervville-Regular.eot');
+    src: url('../../fonts/Baskervville/Baskervville-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/Baskervville/Baskervville-Regular.woff2') format('woff2'),
+    url('../../fonts/Baskervville/Baskervville-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

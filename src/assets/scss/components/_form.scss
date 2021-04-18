@@ -1,0 +1,120 @@
+.select-box {
+    span {
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+.custom-radio {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5em;
+    font-size: 18px;
+    line-height: 21px;
+    color: var(--color);
+    pointer-events: all;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus-within {
+        .radio-label {
+            opacity: 1;
+        }
+    }
+
+    .radio-control {
+        display: grid;
+        place-items: center;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        border: 0.1em solid currentColor;
+        transform: translateY(-0.05em);
+    }
+
+    .radio-label {
+        line-height: 1;
+        transition: 180ms all ease-in-out;
+        opacity: 0.8;
+    }
+
+    .radio-input {
+        display: flex;
+
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    input + .radio-control::before {
+        content: "";
+        width: 0.5em;
+        height: 0.5em;
+        box-shadow: inset 0.5em 0.5em currentColor;
+        border-radius: 50%;
+        transition: 180ms transform ease-in-out;
+        transform: scale(0);
+    }
+
+    input:checked + .radio-control::before {
+        transform: scale(1);
+    }
+}
+
+.custom-checkbox {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5em;
+    font-size: 18px;
+    line-height: 21px;
+    color: var(--color);
+
+    &--disabled {
+        color: var(--disabled);
+    }
+
+    .checkbox-control {
+        display: inline-grid;
+        width: 1em;
+        height: 1em;
+        border-radius: 0.25em;
+        border: 0.1em solid currentColor;
+
+        svg {
+            transition: transform 0.1s ease-in 25ms;
+            transform: scale(0);
+            transform-origin: bottom left;
+        }
+    }
+
+    .checkbox-input {
+        display: grid;
+        grid-template-areas: "checkbox";
+
+        > * {
+            grid-area: checkbox;
+        }
+
+        input {
+            opacity: 0;
+            width: 1em;
+            height: 1em;
+
+            &:focus + .checkbox-control {
+                box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
+            }
+
+            &:checked + .checkbox-control svg {
+                transform: scale(1);
+            }
+
+            &:disabled + .checkbox-control {
+                color: var(--disabled);
+            }
+        }
+    }
+}
